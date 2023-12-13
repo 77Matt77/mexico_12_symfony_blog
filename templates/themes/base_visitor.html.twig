@@ -24,41 +24,61 @@
 
 
 		{# le titre affiche dans l'onglet #}
-		<title>Document</title>
+		<title>
+			{% block title %}{% endblock %} - le blog de Jean Dupond</title>
+
+		{# La description de la pages #}
+		<meta
+		name='description' content="{% block description %}{% endblock %} ">
+
+		{# Auteur #}
+		<meta name="author" content="Matthieu Faucheux">
+		<meta name="publisher" content="DWWM">
+		
+
+		{# Favicon #}
+		<link rel="apple-touch-icon" sizes="180x180" href="{{asset('apple-touch-icon.png')}} ">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon-32x32.png')}} ">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon-16x16.png')}} ">
+		<link rel="manifest" href="{{asset('site.webmanifest')}} ">
+		<link rel="mask-icon" href="{{asset('safari-pinned-tab.svg')}} " color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
 	</head>
 	<body>
 
 		{# barre de navigation #}
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">JD</a>
+				<a class="navbar-brand" href="{{path('visitor_welcome_index')}}">JD</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+							<a class="nav-link active" aria-current="page" href="{{path('visitor_welcome_index')}} ">Accueil</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Qui suis-je ?</a>
+							<a class="nav-link" href=" #">Qui suis-je ?</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Blog</a>
+							<a class="nav-link" href=" {{path('visitor_blog_index')}}">Blog</a>
 						</li>
-                        <li class="nav-item">
-							<a class="nav-link" href="#">Contact</a>
+						<li class="nav-item">
+							<a class="nav-link" href=" {{path('visitor_contact_index')}}">Contact</a>
 						</li>
-						
+
 					</ul>
-                    <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-							<a class="nav-link" href="#">Connexion</a>
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link" href=" #">Connexion</a>
 						</li>
-                        <li class="nav-item">
-							<a class="nav-link" href="#">Inscription</a>
+						<li class="nav-item">
+							<a class="nav-link" href=" #">Inscription</a>
 						</li>
-                    </ul>
+					</ul>
 				</div>
 			</div>
 		</nav>
