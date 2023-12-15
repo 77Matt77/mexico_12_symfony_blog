@@ -25,7 +25,8 @@
 
 		{# le titre affiche dans l'onglet #}
 		<title>
-			{% block title %}{% endblock %} - le blog de Jean Dupond</title>
+			{% block title %}{% endblock %}
+			- le blog de Jean Dupond</title>
 
 		{# La description de la pages #}
 		<meta
@@ -33,8 +34,9 @@
 
 		{# Auteur #}
 		<meta name="author" content="Matthieu Faucheux">
-		<meta name="publisher" content="DWWM">
-		
+		<meta
+		name="publisher" content="DWWM">
+
 
 		{# Favicon #}
 		<link rel="apple-touch-icon" sizes="180x180" href="{{asset('apple-touch-icon.png')}} ">
@@ -72,12 +74,25 @@
 
 					</ul>
 					<ul class="navbar-nav ms-auto">
-						<li class="nav-item">
-							<a class="nav-link" href=" #">Connexion</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('visitor_registration_register')}}">Inscription</a>
-						</li>
+						{% if app.user %}
+
+							<li class="nav-item">
+								<a class="nav-link" href="">{{app.user.lastname}} {{app.user.firstname}}</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="{{path("app_logout")}}">Déconnexion</a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href=" {{path('visitor_authentication_login')}}">Connexion</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{path('visitor_registration_register')}}">Inscription</a>
+							</li>
+						{% endif %}
+
+
 					</ul>
 				</div>
 			</div>
