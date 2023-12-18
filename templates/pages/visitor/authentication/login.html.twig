@@ -59,17 +59,17 @@
 				<div class="col-lg-7 d-flex justify-content-center align-items-center">
 					<img class="img-fluid" src="{{asset('images/visitor/authentication/Connectez-vous-pour-lire-des-articles-sur-la-sante.png')}} " alt="">
 				</div>
-				<div class="col-lg-5 d-flex  justify-content-center align-items-center">
+				<div class="col-lg-5 d-flex flex-column justify-content-center align-items-center">
 					<form method="post" class="w-100">
 						{% if error %}
 							<div class="text-center alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 						{% endif %}
 
-                        {% for message in app.flashes('success') %}
-                        <div class="text-center alert alert-success">
-                        {{message}}
-                        </div>                            
-                        {% endfor %}
+						{% for message in app.flashes('success') %}
+							<div class="text-center alert alert-success">
+								{{message}}
+							</div>
+						{% endfor %}
 
 						<div class="mb-3">
 							<label for="inputEmail">Email</label>
@@ -80,27 +80,34 @@
 							<label for="inputPassword">Mot de passe</label>
 							<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 						</div>
-                        <div class="row">
-                        <div class="col-md-6 mb-3">
-                        <label for="">
-                        <input type="checkbox" name="_remember_me" checked>
-                        Se souvenir de moi
-                        </label>
-                        </div>
-                        <div class="col-md-6 text-md-end">
-                        <a href="{{path("visitor_authentication_forgot_password_request")}}">Mot de passe oublié ?</a>
-                        </div>
-                        </div>
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="">
+									<input type="checkbox" name="_remember_me" checked>
+									Se souvenir de moi
+								</label>
+							</div>
+							<div class="col-md-6 text-md-end">
+								<a href="{{path("visitor_authentication_forgot_password_request")}}">Mot de passe oublié ?</a>
+							</div>
+						</div>
 
 						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 						<div>
 							<input formnovalidate type="submit" class="btn btn-lg btn-primary shadow" value="se connecter">
-						{# <button class="btn btn-lg btn-primary" type="submit">
-														Sign in
-													</button> #}
+
 						</div>
 
 					</form>
+
+					<div class="text-center md-3">
+						<p>Vous êtes déja inscrit ?
+							<a href="{{path("visitor_registration_register")}}"></a>
+						</p>
+						<p>
+							<a href="{{path("visitor_welcome_index")}}">retour à l'accueil</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
