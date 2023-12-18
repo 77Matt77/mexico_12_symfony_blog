@@ -1,1 +1,9 @@
-Hello admin
+{% extends 'themes/base_admin.html.twig' %}
+
+{% block title %}Accuril{% endblock %}
+
+{% block description %}hello Admin{% endblock %}
+
+{% block main %}
+    <h1 class="text-center my-3 ">hello {{app.user.firstName}} !</h1>
+{% endblock %}

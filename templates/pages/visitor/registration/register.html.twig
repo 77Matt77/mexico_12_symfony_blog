@@ -60,6 +60,7 @@
 				</div>
 				<div class="col-lg-5">
 					{{form_start(registrationForm)}}
+					
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="registration_Form_firstName">Prénom <span class="text-danger">*</span></label>
@@ -116,6 +117,10 @@
 						<input formnovalidate type="submit" class='btn btn-primary shadow' value="S'inscrire">
 					</div>
 					{{form_end(registrationForm)}}
+					<div>
+					<p>Vous êtes déja inscrit ? <a href="{{path(""visitor_authentication_loginConnectez-vous)}}"></a></p>
+					<p><a href="{{path("visitor_welcom_index")}}">retour à l'accueil</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
